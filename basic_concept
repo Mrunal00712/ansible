@@ -1,1 +1,45 @@
+Configure == means, configure my server, it could be configuere data to setup the server anything
+configuration management = 1. Manaul
+                           2. Automation ( Ansible)
+
+why we use ANsible
+  ans. 1. one of the facility it provides automation
+       2. Inteligence(they conguration management with intelligence)
+
+Automation 1. Scripts= whatever i ask they do, don't use intilligence
+                e.g., in redhat version 5-6 to start the service there was Service command but in redhat v7 onwards 
+                      there is a systemctl comand to start the service,
+                      similarly yum and dnf command
+                      whatever we write they use step by step, we write script in Imperative language
+                      Imperative means whatever we ask they do step by step without using mind
+whathappens your company server run on different- different O.S. some on rhel9, rhel 6, ubuntu, windows etc.
+if you use sheel script it will work on rhel9 but might not work on other os
+
+
+Ansible use Declerative Language means whatever we want to do setup webserver ansible will do that it is something like that
+
+          2. Ansible= whwn you want to installthe vlc player in different - differnt o.s
+              you will just write the code sych that " install 'vlc'
+              if you run this on rhel9 it has software installation command as dnf
+              in 6 it is yum and
+              in ubuntu it is apt-get
+              you don't know to remenber this command ansible will internall go and install this in your o.s
+              you will not equired the extra knowledge for remberming this
+              this is the power og ansinle
+              
+Ansible is the automation tool for doing your confuguration management but the approch that ansible use is Intillagence means
+we have to do declerative lang internally ansible know how to do
+
+
+yum install ansible-core
+ansible --version
+for install any software using ansible manual(Ad-hoc command)
+  # ansible package dialog install
+
+
+
+
+
+
+
 
