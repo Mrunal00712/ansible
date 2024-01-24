@@ -34,12 +34,24 @@ we have to do declerative lang internally ansible know how to do
 yum install ansible-core
 ansible --version
 for install any software using ansible manual(Ad-hoc command)
-  # ansible package dialog install
+  # ansible localhost -m package -a "name=dialog state=present"  //for every activit ansible have seprate module available 
 
+[root@ip-172-31-43-175 ~]# ansible localhost -m package -a "name=dialog state=present"
+localhost | CHANGED => {
+    "changed": true,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "Installed: dialog-1.3-32.20210117.el9.x86_64"
+    ]
+}
+[root@ip-172-31-43-175 ~]# rpm -q dialog
+dialog-1.3-32.20210117.el9.x86_64
 
+# ansible localhost -m package -a "name=dialog state=absent"
 
-
-
+******************************************************************************************************************
+if you want to create a inventory more look like a data base create in # vim /etc/ansible/hosts
 
 
 
