@@ -52,6 +52,42 @@ dialog-1.3-32.20210117.el9.x86_64
 
 ******************************************************************************************************************
 if you want to create a inventory more look like a data base create in # vim /etc/ansible/hosts
+**************************************************
+Configuring usising manual ansible Ad-hoc command
+ 
+Goal:- Configure Web Server :
+-----------------------------
+what to do ?
+where to do ?
+
+step 1: software : package
+info ->>> install package : "httpd"
+
+# ansible all -m package -a "name=httpd  state=present"
+
+step 2:
+webpage : deploy
+copy page "vimal.html" into ur server os "/var/www/html"
+
+# ansible all -m copy -a "src=vimal.html  dest=/var/www/html"
+
+step 3: service
+execute service : "httpd"
+
+# ansible all -m service -a "name=httpd  state=started"
+
+creating same setup with playbook
+*****myweb.yml*****
+hosts: all
+tasks:
+- package: "name=httpd  state=present"
+- copy: "src=vimal.html  dest=/var/www/html"
+- service: "name=httpd  state=started"
+
+to run the playbook=> ansible-playbook myweb.yml
+
+******************************************************************************************************************************
+
 
 
 
