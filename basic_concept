@@ -5,6 +5,7 @@ configuration management = 1. Manaul
 why we use ANsible
   ans. 1. one of the facility it provides automation
        2. Inteligence(they conguration management with intelligence)
+       3. Ansible work on agentless concept, means it has capability to configure the another system without agent 
 
 Automation 1. Scripts= whatever i ask they do, don't use intilligence
                 e.g., in redhat version 5-6 to start the service there was Service command but in redhat v7 onwards 
@@ -87,7 +88,50 @@ tasks:
 to run the playbook=> ansible-playbook myweb.yml
 
 ******************************************************************************************************************************
+Idempotent= means ansible haveing intelligence that if the software is availble then it will detect and not downlaod it again
+            it will not waste resource and time on downloading that software
 
+RAL:- Resource Abstraction Level
+
+Ansible Tower: AAP platform firs you have to know the coreansible
+
+Ansible Inventory: 
+
+playbook:
+  - for every use cases we have modeule available
+      to install software we have "package"
+      to copy something we have "copy"
+      "service"
+  e.g., 
+- hosts: all
+  tasks:
+    - package: "name=httpd state=present"
+    - copy: "src=index.html  dest=/var/www/html/"
+    - service: "name=httpd state=started enabled=true"
+
+#ansible-paybook -h ==  check syntax 
+
+*****creating play book using variable*******
+
+- hosts: web
+  vars:
+    - webPage: "vimal.html"
+    - packageName: "httpd"
+  tasks:
+    -  package:
+         name: "{{ packageName }}"
+         state: present
+
+    -  copy:
+         src: "{{ x }}"
+         dest: "/var/www/html/"
+
+    -  service:
+          name: "httpd"
+          state: started
+          enabled: true
+************************************************************************************************************************
+fact: 
 
 
 
